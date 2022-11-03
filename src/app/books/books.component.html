@@ -1,5 +1,5 @@
-<ng-container *ngFor="let flower of flowers">
-  <div class="card mb-3">
+<ng-container *ngIf="!isLoading;else showLoading">
+  <div class="card mb-3" *ngFor="let flower of flowers">
     <div class="row">
       <div class="col-4">
         <div class="image__content" (click)="goToDetail(flower)">
@@ -15,3 +15,16 @@
     </div>
   </div>
 </ng-container>
+
+<ng-template #showLoading>
+  <div class="card mb-3" *ngFor="let item of [].constructor(10)">
+    <content-loader>
+      <svg:rect x="0" y="0" rx="3" ry="3" width="100" height="140" />
+      <svg:rect x="120" y="4" rx="3" ry="3" width="270" height="14" />
+      <svg:rect x="120" y="30" rx="3" ry="3" width="270" height="8" />
+      <svg:rect x="120" y="50" rx="3" ry="3" width="270" height="8" />
+      <svg:rect x="120" y="70" rx="3" ry="3" width="270" height="8" />
+      <svg:rect x="120" y="90" rx="3" ry="3" width="200" height="8" />
+    </content-loader>
+  </div>
+</ng-template>

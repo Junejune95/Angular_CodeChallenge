@@ -14,11 +14,14 @@ export class BooksComponent implements OnInit {
   public flowers = new Array<Book>();
   private param: string | undefined;
   private bookType: string = 'Flowers';
+  public isLoading:boolean=false;
+
   constructor(private _service: AppService, private _router: Router, private _activeRoute: ActivatedRoute) {
     this._router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
+    this.isLoading=true;
     this.bookType = this._activeRoute.snapshot.params['booktype'];
     this.getFlowers();
   }
@@ -27,8 +30,8 @@ export class BooksComponent implements OnInit {
   getFlowers() {
     this.subscription = this._service.getBooks(this.bookType)
       .subscribe((res: Book[]) => {
-        console.log(res);
         this.flowers = res;
+        this.isLoading=false;
       })
   }
 
