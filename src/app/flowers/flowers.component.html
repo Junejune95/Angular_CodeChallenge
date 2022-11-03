@@ -1,0 +1,20 @@
+
+<ng-container *ngFor="let flower of flowers">
+    <div class="card mb-3">
+        <div class="row">
+          <div class="col-4">
+            <div class="image__content">
+              <img [src]="flower?.image" class="img-fluid" alt="Book Cover Image">
+            </div>
+
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h5 class="card-title">{{flower?.title}}</h5>
+              <p class="card-text">{{flower?.subtitle}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-container>

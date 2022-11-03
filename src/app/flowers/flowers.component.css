@@ -1,0 +1,27 @@
+.card {
+    height: 180px;
+    padding: 10px;
+}
+
+.image__content {
+    height: 140px;
+    width: 100px;
+}
+
+img.img-fluid{
+    margin: 10px;
+    box-shadow: 2px 3px 13px #2125258a;
+    border: none;
+    border-radius: 2px;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+p.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
