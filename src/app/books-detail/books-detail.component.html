@@ -9,7 +9,15 @@
         <div class="col-8">
             <div class="card-body">
                 <h5 class="card-title">{{selectedFlower?.title}}</h5>
-                <p class="card-text" [class.text-muted]="selectedFlower?.subtitle==null">{{selectedFlower?.subtitle ? selectedFlower?.subtitle : 'Empty Subtitle'}}</p>
+                <p class="author-text" *ngIf="selectedFlower?.authors">
+                    by 
+                    <span class="highlight" >
+                        {{selectedFlower?.authors}}
+                     
+                    </span>
+                </p>
+                <p class="card-text" [class.text-muted]="selectedFlower?.subtitle==null">{{selectedFlower?.subtitle ?
+                    selectedFlower?.subtitle : 'Empty Subtitle'}}</p>
             </div>
         </div>
     </div>

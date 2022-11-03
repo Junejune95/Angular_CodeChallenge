@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // components
 import { TopNavigationBarComponent } from './top-navigation-bar/top-navigation-bar.component';
-import { FlowerBooksComponent } from './flower-books/flower-books.component';
-import { HistoryBooksComponent } from './history-books/history-books.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FlowerbooksDetailComponent } from './flowerbooks-detail/flowerbooks-detail.component';
+import { BooksComponent } from './books/books.component';
+
+import { BooksDetailComponent } from './books-detail/books-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationBarComponent,
-    FlowerBooksComponent,
-    HistoryBooksComponent,
-    FlowerbooksDetailComponent
+    BooksComponent,
+    BooksDetailComponent
   ],
   imports: [
     BrowserModule,

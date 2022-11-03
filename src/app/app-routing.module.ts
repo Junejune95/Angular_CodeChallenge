@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FlowerBooksComponent } from 'src/app/flower-books/flower-books.component';
-import { FlowerbooksDetailComponent } from 'src/app/flowerbooks-detail/flowerbooks-detail.component';
+import { BooksDetailComponent } from 'src/app/books-detail/books-detail.component';
+import { BooksComponent } from 'src/app/books/books.component';
 
-import { HistoryBooksComponent } from 'src/app/history-books/history-books.component';
+
+
 
 const routes: Routes = [
   {
-    path: 'flowerbooks',
-    component: FlowerBooksComponent,
+    path: 'books/:booktype',
+    component: BooksComponent,
   },
+
   {
-    path:'flowerbooks/:id',
-    component:FlowerbooksDetailComponent
+    path:'books/:booktype/:id',
+    component:BooksDetailComponent
   },
-  {
-    path: 'historybooks',
-    component: HistoryBooksComponent
-  },
+
   {
     path: '',
-    redirectTo: 'flowers',
+    redirectTo: 'books',
     pathMatch: 'full'
   }
 ];

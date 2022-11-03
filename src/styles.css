@@ -15,7 +15,7 @@ img.img-fluid{
     border: none;
     border-radius: 2px;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
 }
 
@@ -28,7 +28,7 @@ h5.card-title{
 }
 p.card-text {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

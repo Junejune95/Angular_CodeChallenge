@@ -1,0 +1,13 @@
+.card{
+    height: auto !important;
+}
+
+p.author-text {
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+p.author-text > .highlight{
+    color: #0a58ca;
+}
