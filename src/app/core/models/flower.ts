@@ -1,4 +1,4 @@
-export interface Flower{
+export interface FlowerBook{
     id:string,
     title:string,
     subtitle:string,

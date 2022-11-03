@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 
 // components
 import { TopNavigationBarComponent } from './top-navigation-bar/top-navigation-bar.component';
-import { FlowersComponent } from './flowers/flowers.component';
+import { FlowerBooksComponent } from './flower-books/flower-books.component';
 import { HistoryBooksComponent } from './history-books/history-books.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FlowerbooksDetailComponent } from './flowerbooks-detail/flowerbooks-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavigationBarComponent,
-    FlowersComponent,
-    HistoryBooksComponent
+    FlowerBooksComponent,
+    HistoryBooksComponent,
+    FlowerbooksDetailComponent
   ],
   imports: [
     BrowserModule,

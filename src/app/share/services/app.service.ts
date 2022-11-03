@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from "@angular/common/http";
 import { map, Observable } from 'rxjs';
-import { Flower } from 'src/app/core/models/flower';
+import { FlowerBook } from 'src/app/core/models/flower';
 
 
 @Injectable({
@@ -13,13 +13,13 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  getFlowers(): Observable<Flower[]> {
+  getFlowers(): Observable<FlowerBook[]> {
     let url = `${this.apiUrl}/volumes?q=flowers`;
     return this.http.get<any>(url).pipe(map((data: any) => {
-      let items = new Array<Flower>();
+      let items = new Array<FlowerBook>();
       items = data.items.map((item: any) => {
         console.log(item)
-        let flower: Flower = {
+        let flower: FlowerBook = {
           id: item.id,
           title: item.volumeInfo.title,
           subtitle: item.volumeInfo.subtitle,
