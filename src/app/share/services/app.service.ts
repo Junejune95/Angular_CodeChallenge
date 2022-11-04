@@ -9,7 +9,7 @@ import { Book } from 'src/app/core/models/book';
   providedIn: 'root'
 })
 export class AppService {
-  private apiUrl = environment.apiUrl;
+   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +18,7 @@ export class AppService {
     return this.http.get<any>(url).pipe(map((data: any) => {
       let items = new Array<Book>();
       items = data.items.map((item: any) => {
-        console.log(item)
-        let flower: Book = {
+        let book: Book = {
           id: item.id,
           title: item.volumeInfo.title,
           subtitle: item.volumeInfo.subtitle,
@@ -27,7 +26,7 @@ export class AppService {
           image: item.volumeInfo.imageLinks.thumbnail,
           authors:item.volumeInfo.authors
         };
-        return flower;
+        return book;
       })
 
       return items;

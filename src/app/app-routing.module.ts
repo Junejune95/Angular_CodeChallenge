@@ -19,7 +19,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'books',
+    redirectTo: 'books/flowers',
     pathMatch: 'full'
   }
 ];
