@@ -1,9 +1,10 @@
-import { ComponentFixture, fakeAsync, TestBed, tick, } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, inject, TestBed, tick, } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
-
+import { RouterLinkWithHref } from '@angular/router';
 import { TopNavigationBarComponent } from './top-navigation-bar.component';
 
 describe('TopNavigationBarComponent', () => {
@@ -19,14 +20,7 @@ describe('TopNavigationBarComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [TopNavigationBarComponent],
       imports: [RouterTestingModule.withRoutes([])],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            params: params
-          },
-        },
-      ]
+
     })
       .compileComponents();
 
@@ -43,44 +37,13 @@ describe('TopNavigationBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should change on route param change', fakeAsync(() => {
-  //   // this calls ngOnInit and we subscribe
-  //   fixture.detectChanges();
-
-  //   params.next({ 'type': 'flowers' });
-
-  //   // tick to make sure the async observable resolves
-  //   tick();
-
-  //   expect(component._pageToShow).toBe('Terry');
-
-  //   params.next({ 'area': 'history' });
-  //   tick();
-
-  //   expect(component._pageToShow).toBe('Billy');
-  // }));
-
-  // it('should be history', (done) => { // add done to let Jasmine know when you're done with the test
-  //   paramsSubject.next({ type:'history'});
-  //   route.params.subscribe(params => {
-  //     console.log(params)
-  //     expect(params['type']).toBe('history');
-  //     done();
-  //   });
-  // });
-
-  // it('should be flowers', (done) => { // add done to let Jasmine know when you're done with the test
-  //   paramsSubject.next({ type:'flowers'});
-    
-  //   route.params.subscribe(params => {
-  //     expect(params['type']).toBe('flowers');
-  //     done();
-  //   });
-  // });
-
-
-
-
-
+  it('should have a link to `books/flowers` or `books/history`', () => {
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    const index = debugElements.findIndex(de => {
+      console.log(de.properties['href'])
+      return de.properties['href'].includes('/books/flowers') || de.properties['href'].includes('/books/history');
+    });
+    expect(index).toBeGreaterThan(-1);
+  });
 
 });

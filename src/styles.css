@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 .card {
     height: 180px !important;
     padding: 10px;
@@ -9,7 +11,7 @@
     width: 100px;
 }
 
-img.img-fluid{
+img.img-fluid {
     margin: 10px;
     box-shadow: 2px 3px 13px #2125258a;
     border: none;
@@ -19,13 +21,14 @@ img.img-fluid{
     width: 100%;
 }
 
-h5.card-title{
+h5.card-title {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 p.card-text {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -33,4 +36,3 @@ p.card-text {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-

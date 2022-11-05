@@ -9,11 +9,11 @@ import { Book } from 'src/app/core/models/book';
   providedIn: 'root'
 })
 export class AppService {
-   apiUrl = environment.apiUrl;
+  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
-  getBooks(param:string): Observable<Book[]> {
+  getBooks(param: string): Observable<Book[]> {
     let url = `${this.apiUrl}/volumes?q=${param}`;
     return this.http.get<any>(url).pipe(map((data: any) => {
       let items = new Array<Book>();
@@ -24,7 +24,7 @@ export class AppService {
           subtitle: item.volumeInfo.subtitle,
           description: item.volumeInfo.description,
           image: item.volumeInfo.imageLinks.thumbnail,
-          authors:item.volumeInfo.authors
+          authors: item.volumeInfo.authors
         };
         return book;
       })
@@ -33,6 +33,6 @@ export class AppService {
     }))
   }
 
-  
+
 
 }

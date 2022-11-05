@@ -9,16 +9,17 @@ import { Book } from 'src/app/core/models/book';
   styleUrls: ['./books-detail.component.css']
 })
 export class BooksDetailComponent implements OnInit {
-  public selectedFlower:Book | undefined;
+  public selectedBook:Book | undefined;
 
-  constructor(private _loc:Location) { }
+  constructor(public _loc:Location) { }
 
   ngOnInit(): void {
-    let temp=localStorage.getItem('selectedFlower');
-    this.selectedFlower=temp ? JSON.parse(temp) : undefined;
+    let temp=localStorage.getItem('selectedBook');
+    this.selectedBook=temp ? JSON.parse(temp) : undefined;
   }
 
   backprev(){
+    localStorage.removeItem('selectedBook');
     this._loc.back();
   }
 

@@ -91,7 +91,6 @@ describe('BooksComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-
   it('should have book type param in route', () => {
     activeRoute.snapshot.params['booktype'] = 'flowers';
     component = fixture.componentInstance;
@@ -99,7 +98,7 @@ describe('BooksComponent', () => {
     expect(component.bookType).toBe('flowers');
   });
 
-  it('getBook() should return books list', () => {
+  it('should return the books list when `getBook()` function call', () => {
     const dummyBooks = [
       {
         id: '1',
@@ -146,7 +145,7 @@ describe('BooksComponent', () => {
     });
   });
 
-  it('should image click event call', fakeAsync(() => {
+  it('should call `goToDetail` function when image tag click', fakeAsync(() => {
     spyOn(component, 'goToDetail');
 
     let image = fixture.debugElement.nativeElement.querySelector('img');

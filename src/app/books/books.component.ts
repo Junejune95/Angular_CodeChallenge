@@ -13,14 +13,14 @@ export class BooksComponent implements OnInit {
   private subscription: Subscription | undefined;
   public books = new Array<Book>();
   public bookType: string = 'flowers';
-  public isLoading:boolean=false;
+  public isLoading: boolean = false;
 
   constructor(private _service: AppService, private _router: Router, private _activeRoute: ActivatedRoute) {
     this._router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
-    this.isLoading=true;
+    this.isLoading = true;
     this.bookType = this._activeRoute.snapshot.params['booktype'];
     this.getBooks();
   }
@@ -30,14 +30,15 @@ export class BooksComponent implements OnInit {
     this.subscription = this._service.getBooks(this.bookType)
       .subscribe((res: Book[]) => {
         this.books = res;
-        this.isLoading=false;
+        this.isLoading = false;
       })
   }
 
-  goToDetail(flower: Book) {
-    localStorage.setItem('selectedFlower', JSON.stringify(flower));
-    this._router.navigate(['books', this.bookType,flower.id]);
+  goToDetail(book: Book) {
+    localStorage.setItem('selectedBook', JSON.stringify(book));
+    this._router.navigate(['books', this.bookType, book.id]);
   }
+
   ngOnDestory(): void {
     this.subscription?.unsubscribe();
   }
