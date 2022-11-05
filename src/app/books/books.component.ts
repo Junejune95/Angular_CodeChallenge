@@ -11,9 +11,8 @@ import { AppService } from 'src/app/share/services/app.service';
 })
 export class BooksComponent implements OnInit {
   private subscription: Subscription | undefined;
-  public flowers = new Array<Book>();
-  private param: string | undefined;
-  private bookType: string = 'Flowers';
+  public books = new Array<Book>();
+  public bookType: string = 'flowers';
   public isLoading:boolean=false;
 
   constructor(private _service: AppService, private _router: Router, private _activeRoute: ActivatedRoute) {
@@ -23,14 +22,14 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading=true;
     this.bookType = this._activeRoute.snapshot.params['booktype'];
-    this.getFlowers();
+    this.getBooks();
   }
 
 
-  getFlowers() {
+  getBooks() {
     this.subscription = this._service.getBooks(this.bookType)
       .subscribe((res: Book[]) => {
-        this.flowers = res;
+        this.books = res;
         this.isLoading=false;
       })
   }

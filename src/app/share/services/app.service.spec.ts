@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Book } from 'src/app/core/models/book';
+import { environment } from 'src/environments/environment';
 
 import { AppService } from './app.service';
 
@@ -18,11 +19,16 @@ describe('AppService', () => {
       ]
     });
     service = TestBed.inject(AppService);
-    httpMock = TestBed.inject(HttpTestingController)
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
     httpMock.verify();
+  });
+
+
+  it('should have apiUrl in Enviroment', () => {
+    expect(environment.apiUrl).toBeDefined();
   });
 
   it('should get flower books list from the API', () => {
@@ -198,7 +204,7 @@ describe('AppService', () => {
     });
 
     const req = httpMock.expectOne(`${service.apiUrl}/volumes?q=flowers`);
-
+    console.log(httpMock)
     expect(req.request.method).toBe('GET');
 
     req.flush(dummyapiRes);
@@ -370,4 +376,6 @@ describe('AppService', () => {
     req.flush(dummyapiRes);
 
   });
+
+
 });

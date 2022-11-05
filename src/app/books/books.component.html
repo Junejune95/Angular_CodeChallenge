@@ -1,15 +1,15 @@
 <ng-container *ngIf="!isLoading;else showLoading">
-  <div class="card mb-3" *ngFor="let flower of flowers">
+  <div class="card mb-3" *ngFor="let book of books" id="bookCard">
     <div class="row">
       <div class="col-4">
-        <div class="image__content" (click)="goToDetail(flower)">
-          <img [src]="flower?.image" class="img-fluid" alt="Book Cover Image">
+        <div class="image__content" (click)="goToDetail(book)">
+          <img [src]="book?.image" class="img-fluid" alt="Book Cover Image">
         </div>
       </div>
       <div class="col-8">
         <div class="card-body">
-          <h5 class="card-title">{{flower?.title}}</h5>
-          <p class="card-text">{{flower?.subtitle}}</p>
+          <h5 class="card-title">{{book?.title}}</h5>
+          <p class="card-text">{{book?.subtitle}}</p>
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
 </ng-container>
 
 <ng-template #showLoading>
-  <div class="card mb-3" *ngFor="let item of [].constructor(10)">
+  <div class="card mb-3" *ngFor="let item of [].constructor(10)" id="loadingCard">
     <content-loader>
       <svg:rect x="0" y="0" rx="3" ry="3" width="100" height="140" />
       <svg:rect x="120" y="4" rx="3" ry="3" width="270" height="14" />

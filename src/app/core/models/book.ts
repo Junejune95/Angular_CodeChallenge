@@ -1,8 +1,8 @@
 export interface Book{
     id:string,
     title:string,
-    subtitle:string | undefined,
-    description:string | undefined,
+    subtitle?:string | undefined,
+    description?:string | undefined,
     image:string,
-    authors:string[] | undefined
+    authors?:string[] | undefined
 }
